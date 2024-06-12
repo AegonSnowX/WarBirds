@@ -19,7 +19,7 @@ public class VehicleMovement : MonoBehaviour
 
     void Start()
     {
-        // Store the initial offset of the turret from the truck
+       
     }
 
     void Update()

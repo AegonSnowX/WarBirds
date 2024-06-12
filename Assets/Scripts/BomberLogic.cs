@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BomberLogic : MonoBehaviour
 {
-    public float FlightSpeed = 1.2f;
-    public GameObject Bomb1Prefab;
-    public Rigidbody2D bomberRb;
+    [SerializeField] float FlightSpeed = 1.2f;
+    [SerializeField] GameObject Bomb1Prefab;
+    [SerializeField] Rigidbody2D bomberRb;
     private float bombDropInterval;
     private float timeSinceLastBomb;
-    public GameObject Bomb2Prefab;
-    public SpriteRenderer plane;
-    private bool movingRight=true;
-
+    [SerializeField] GameObject Bomb2Prefab;
+    [SerializeField] SpriteRenderer plane;
+ [SerializeField] bool movingRight = true;
+    
 
 
     void Start()
@@ -77,8 +77,10 @@ public class BomberLogic : MonoBehaviour
             }
         }else if((bombtype == 1) && (!movingRight))
         {
+           
             GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Bomb1Prefab.transform.rotation);
             SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
+            bombsprite.flipY = true;
 
 
 
@@ -93,11 +95,24 @@ public class BomberLogic : MonoBehaviour
 
 
 
-        else
+        else if((bombtype == 2) && (movingRight)) 
 
         {
             GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Bomb2Prefab.transform.rotation);
 
+            // Set the bomb's initial velocity to match the bomber's velocity
+            Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();
+            if (bombRb != null)
+            {
+                bombRb.velocity = bomberRb.velocity;
+
+            }
+        }
+        else if(bombtype == 2 && (!movingRight))
+        {
+            GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Bomb2Prefab.transform.rotation);
+            SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
+            bombsprite.flipY = true;
             // Set the bomb's initial velocity to match the bomber's velocity
             Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();
             if (bombRb != null)
