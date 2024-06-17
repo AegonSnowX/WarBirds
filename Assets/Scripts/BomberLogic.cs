@@ -58,12 +58,10 @@ public class BomberLogic : MonoBehaviour
     void DropBomb()
     {
         int bombtype = Random.Range(1, 3);
-       
-
         if ((bombtype == 1)&&(movingRight))
         // Instantiate a bomb at the bomber's position with the bomber's rotation
         {  
-            GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Bomb1Prefab.transform.rotation);
+            GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, 90));
             SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
 
 
@@ -78,11 +76,9 @@ public class BomberLogic : MonoBehaviour
         }else if((bombtype == 1) && (!movingRight))
         {
            
-            GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Bomb1Prefab.transform.rotation);
+            GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, -90));
             SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
-            bombsprite.flipY = true;
-
-
+            //bombsprite.flipY = true;
 
             // Set the bomb's initial velocity to match the bomber's velocity
             Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();
