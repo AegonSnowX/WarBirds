@@ -64,7 +64,7 @@ public class BombLogic : MonoBehaviour
     }
     void BombExplosion()
     {
-        GameObject explosion = Instantiate(Explosion1Prefab, transform.position, Quaternion.identity);
+        GameObject explosion = Instantiate(Explosion1Prefab,transform.position, Quaternion.identity);
         ExplosionDestroyer destroyer = explosion.AddComponent<ExplosionDestroyer>();
         destroyer.lifeSecondsLeft = 4;
         Destroy(gameObject);

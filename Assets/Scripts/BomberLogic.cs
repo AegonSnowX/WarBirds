@@ -94,7 +94,7 @@ public class BomberLogic : MonoBehaviour
         else if((bombtype == 2) && (movingRight)) 
 
         {
-            GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Bomb2Prefab.transform.rotation);
+            GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Quaternion.Euler(0, 0, 90));
 
             // Set the bomb's initial velocity to match the bomber's velocity
             Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();
@@ -106,9 +106,9 @@ public class BomberLogic : MonoBehaviour
         }
         else if(bombtype == 2 && (!movingRight))
         {
-            GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Bomb2Prefab.transform.rotation);
+            GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Quaternion.Euler(0, 0, -90));
             SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
-            bombsprite.flipY = true;
+            //bombsprite.flipY = true;
             // Set the bomb's initial velocity to match the bomber's velocity
             Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();
             if (bombRb != null)
