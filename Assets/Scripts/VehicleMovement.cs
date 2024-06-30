@@ -18,30 +18,20 @@ public class VehicleMovement : MonoBehaviour
     [SerializeField] SpriteRenderer truck;
     [SerializeField] float lastMoveX = 1f;
     [SerializeField] GameObject turretStand;
-    [SerializeField] SpriteRenderer turretSprite ;
-    [SerializeField] GameObject AntiAirRocket;
-    [SerializeField] Aimpoint aimPoint;
+    [SerializeField] SpriteRenderer turretSprite ; 
     [SerializeField] GameObject turret; // Reference to the turret
     [SerializeField] float turretOffsetXRight = -3.9f; // Adjust this value for right facing
     [SerializeField] float turretOffsetXLeft = 3.9f; // Adjust this value for left facing
-
-    
-    public float BulletSpeed = 35f;
-   
-    public GameObject firingPoint;
-   
-
+    public float angle { get; private set; }
     void Start()
     {
-
+        
     }
 
     void Update()
     {
         TruckMovement();
         AimTurret();
-       FiringMechanism();
-       
     }
 
     public void TruckMovement()
@@ -83,50 +73,15 @@ public class VehicleMovement : MonoBehaviour
 
 
     }
-    float angle;
+     
     void AimTurret()
     {
-        // Get the mouse position in screen coordinates
         Vector3 mousePosition = Input.mousePosition;
-
-        // Convert mouse position to world coordinates
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        mouseWorldPosition.z = 0; // Ensure z position is the same as the turret's
-
-        // Calculate direction from turret to mouse position
+        mouseWorldPosition.z = 0; 
         Vector3 direction = mouseWorldPosition - turret.transform.position;
-       
-        // Calculate rotation angle
-          angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        
-/*
-        // Flip the turret sprite based on the angle
-        if (angle > 90 && angle < 270)
-        {
-           // turretSprite.flipY = true;
-            angle = 180 - angle;
-        }
-        else
-        {
-            turretSprite.flipY = false;
-        }
-*/
-        // Rotate the turret to face the mouse position
+         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         turret.transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
-    public void FiringMechanism()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameObject projectile = Instantiate(AntiAirRocket, firingPoint.transform.position, Quaternion.Euler(0f, 0f, angle - 45));
-            Vector3 aimingVector = aimPoint.gameObject.transform.position - firingPoint.transform.position;
-            aimingVector.Normalize();
-            projectile.GetComponent<Rigidbody2D>().AddForce(aimingVector * BulletSpeed);
-        }
-    }
-    
-   
-
 }
 

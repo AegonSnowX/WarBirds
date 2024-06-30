@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bomber
+    uniqueID: 1323353041
+    locked: 0

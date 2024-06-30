@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2969574256817004828}
   - component: {fileID: 1355863522379566276}
   - component: {fileID: 474898065832516745}
+  - component: {fileID: 2020763161226792212}
   m_Layer: 0
   m_Name: Anti Air Bullet
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 61849659420156143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0, z: 0}
-  m_LocalScale: {x: 0.016165756, y: 0.015558391, z: 1}
+  m_LocalPosition: {x: -0.00815, y: 0.00893, z: 0}
+  m_LocalScale: {x: 0.01775679, y: 0.017303264, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,14 +122,25 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 4.684549, y: 5.282586}
-  - {x: 4.717173, y: 5.2920723}
-  - {x: 4.5623493, y: 3.7526321}
-  - {x: -1.3792466, y: -4.4122667}
-  - {x: -3.2674208, y: -3.7802372}
-  - {x: -3.163859, y: -3.7247312}
-  - {x: -4.338753, y: -1.5538899}
-  - {x: 4.7679224, y: 5.405838}
+  - {x: 4.3881326, y: 4.750607}
+  - {x: 4.1640253, y: 3.7958634}
+  - {x: 3.915447, y: 3.1127641}
+  - {x: 2.7891552, y: 1.3648405}
+  - {x: -0.9078822, y: -2.2111359}
+  - {x: -0.98518205, y: -3.7327514}
+  - {x: -1.4234071, y: -4.2134337}
+  - {x: -1.7597035, y: -4.19054}
+  - {x: -2.1104898, y: -3.2376823}
+  - {x: -2.9288568, y: -3.7649424}
+  - {x: -3.016657, y: -3.4647195}
+  - {x: -3.5596364, y: -2.850348}
+  - {x: -3.1243682, y: -2.3311574}
+  - {x: -4.1770725, y: -1.8058805}
+  - {x: -3.4828558, y: -1.2450897}
+  - {x: -2.0310938, y: -0.99353135}
+  - {x: 1.8426335, y: 3.2822978}
+  - {x: 3.9325662, y: 4.565871}
+  - {x: 4.3098264, y: 4.761863}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -160,3 +172,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2020763161226792212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61849659420156143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aed115035d197041a202035db04b864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion1Prefab: {fileID: 0}
+  bomberLogic: {fileID: 0}

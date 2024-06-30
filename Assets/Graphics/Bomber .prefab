@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3919155511800486239
+--- !u!1 &4086139513523288727
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2440085754222667140}
-  - component: {fileID: 1314852450984706927}
-  - component: {fileID: 4507000474557220253}
-  - component: {fileID: 5232201219744783146}
-  - component: {fileID: 3763066372703428657}
+  - component: {fileID: 4002437437195624120}
+  - component: {fileID: 3530730291106333300}
+  - component: {fileID: 6082094324459242618}
+  - component: {fileID: 2198264740560615140}
+  - component: {fileID: 2047215782379200459}
   m_Layer: 3
   m_Name: 'Bomber '
   m_TagString: Untagged
@@ -20,28 +20,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2440085754222667140
+--- !u!4 &4002437437195624120
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3919155511800486239}
+  m_GameObject: {fileID: 4086139513523288727}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -10.59, y: 4.27, z: -0.044075444}
+  m_LocalPosition: {x: -10.34, y: 3.09, z: -0.044075444}
   m_LocalScale: {x: 0.18134779, y: 0.20645776, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 180}
---- !u!212 &1314852450984706927
+--- !u!212 &3530730291106333300
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3919155511800486239}
+  m_GameObject: {fileID: 4086139513523288727}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -87,14 +87,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4507000474557220253
+--- !u!50 &6082094324459242618
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3919155511800486239}
+  m_GameObject: {fileID: 4086139513523288727}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -114,31 +114,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5232201219744783146
-MonoBehaviour:
+--- !u!61 &2198264740560615140
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3919155511800486239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a681bbf8849c7647b5fa63123e1079f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FlightSpeed: 1.2
-  Bomb1Prefab: {fileID: 2816666325380781707, guid: be53f679f247ac3449d16de2a9349092, type: 3}
-  bomberRb: {fileID: 4507000474557220253}
-  Bomb2Prefab: {fileID: 3075262687409271911, guid: 12df52a63460307459ea5ff2073820c7, type: 3}
-  plane: {fileID: 1314852450984706927}
-  movingRight: 1
---- !u!68 &3763066372703428657
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3919155511800486239}
+  m_GameObject: {fileID: 4086139513523288727}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -164,32 +146,34 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.2337153}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 10.24}
+    newSize: {x: 10.24, y: 10.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.24, y: 3.832964}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -5.053554, y: -0.0875459}
-  - {x: -4.7245774, y: 0.3123008}
-  - {x: -1.7844743, y: 0.33090925}
-  - {x: -3.0432136, y: 1.6142402}
-  - {x: -2.3408096, y: 1.6485956}
-  - {x: -0.37609023, y: 0.32553482}
-  - {x: 2.5973065, y: 0.6101852}
-  - {x: 3.6997592, y: 2.05302}
-  - {x: 4.438933, y: 2.0719218}
-  - {x: 4.405176, y: 0.39406565}
-  - {x: 5.1458073, y: -0.3400881}
-  - {x: 1.1336732, y: -0.64553654}
-  - {x: 2.3504946, y: -1.5781194}
-  - {x: 1.4438539, y: -1.6484656}
-  - {x: 0.44462138, y: -1.195053}
-  - {x: -1.5268607, y: -1.404395}
-  - {x: -1.6052222, y: -0.9132505}
-  - {x: -2.1787276, y: -0.8658387}
-  - {x: -2.2877219, y: -1.1706659}
-  - {x: -2.523569, y: -0.65832484}
-  - {x: -4.985751, y: -0.4689644}
-  - {x: -5.0959625, y: -0.10213804}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
+--- !u!114 &2047215782379200459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086139513523288727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a681bbf8849c7647b5fa63123e1079f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlightSpeed: 1.2
+  Bomb1Prefab: {fileID: 2816666325380781707, guid: be53f679f247ac3449d16de2a9349092, type: 3}
+  bomberRb: {fileID: 6082094324459242618}
+  Bomb2Prefab: {fileID: 3075262687409271911, guid: 12df52a63460307459ea5ff2073820c7, type: 3}
+  plane: {fileID: 3530730291106333300}
+  movingRight: 1

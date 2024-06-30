@@ -7,6 +7,7 @@ public class BombLogic : MonoBehaviour
     public float torqueAmount = 0.2f;  // Adjust this value to control the rotation speed
     public ContactFilter2D groundContactFilter;
     [SerializeField] GameObject Explosion1Prefab;
+   
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -68,7 +69,8 @@ public class BombLogic : MonoBehaviour
         ExplosionDestroyer destroyer = explosion.AddComponent<ExplosionDestroyer>();
         destroyer.lifeSecondsLeft = 4;
         Destroy(gameObject);
-
+      
+ 
     }
 
 }
