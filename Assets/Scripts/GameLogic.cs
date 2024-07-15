@@ -6,29 +6,24 @@ using UnityEngine;
 public class Gamelogic : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI wavetext;
-    [SerializeField] int wave = 0;
+    [SerializeField] int wave = 1;
     public GameObject Plane;
 
      void Start()
     {
 
     }
-     void Update()
+     void LateUpdate()
     {
         if (GameObject.FindGameObjectWithTag("Enemy Plane") == null)
         {
             Wave();
         }
         
-        
-        else
-        {
-            Debug.Log("Wave Not Called");
-        }
-
     }
     public void Wave()
     {
+
         for (int i = 0; i < wave; i++)
         {
             float x = Random.Range(12.0f, 14.0f);
