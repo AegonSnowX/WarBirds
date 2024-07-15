@@ -81,7 +81,18 @@ public class VehicleMovement : MonoBehaviour
         mouseWorldPosition.z = 0; 
         Vector3 direction = mouseWorldPosition - turret.transform.position;
          angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        turret.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+       
+
+        if (angle > 0)
+        {
+             turret.transform.rotation = Quaternion.Euler(0f, 0f, angle); 
+        }
+        if(angle >90)
+            {
+            turret.transform.rotation = Quaternion.Euler(0f, 180f, angle);
+        }
+
+
     }
 }
 
