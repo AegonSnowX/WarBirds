@@ -11,11 +11,12 @@ public class TurretFiringMechanism : MonoBehaviour
     public GameObject firingPoint;
     [SerializeField] Aimpoint aimPoint;
     [SerializeField] VehicleMovement directionangle;
+    public Aimpoint aimpoint; 
    
   
     void Start()
     {
-        
+        aimpoint = GameObject.Find("AimPoint").GetComponent<Aimpoint>();
     }
 
     // Update is called once per frame
@@ -28,10 +29,13 @@ public class TurretFiringMechanism : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             float angle = directionangle.angle;
-            GameObject projectile = Instantiate(AntiAirRocket, firingPoint.transform.position, Quaternion.Euler(0f, 0f, angle - 45));
-            Vector3 aimingVector = aimPoint.gameObject.transform.position - firingPoint.transform.position;
-            aimingVector.Normalize();
-            projectile.GetComponent<Rigidbody2D>().AddForce(aimingVector * BulletSpeed);
+            if (aimpoint.canFire)
+            {
+                GameObject projectile = Instantiate(AntiAirRocket, firingPoint.transform.position, Quaternion.Euler(0f, 0f, angle - 45));
+                Vector3 aimingVector = aimPoint.gameObject.transform.position - firingPoint.transform.position;
+                aimingVector.Normalize();
+                projectile.GetComponent<Rigidbody2D>().AddForce(aimingVector * BulletSpeed);
+            }
         }
     }
 
