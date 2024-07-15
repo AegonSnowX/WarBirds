@@ -29,7 +29,7 @@ public class BomberLogic : MonoBehaviour
 
     public void BomberMovement()
     {
-        if (transform.position.x > -12 && transform.position.x < 12)
+        if (transform.position.x > -16 && transform.position.x < 16)
         {
             // Continue moving in the current direction
             bomberRb.velocity = new Vector2(movingRight ? FlightSpeed : -FlightSpeed, bomberRb.velocity.y);
