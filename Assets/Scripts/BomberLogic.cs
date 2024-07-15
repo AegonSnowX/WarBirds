@@ -11,7 +11,7 @@ public class BomberLogic : MonoBehaviour
     private float timeSinceLastBomb;
     [SerializeField] GameObject Bomb2Prefab;
     [SerializeField] SpriteRenderer plane;
- [SerializeField] bool movingRight = true;
+    [SerializeField] bool movingRight = true;
     
 
 
@@ -62,7 +62,7 @@ public class BomberLogic : MonoBehaviour
         // Instantiate a bomb at the bomber's position with the bomber's rotation
         {  
             GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, 90));
-            SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
+            //SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
 
 
 
@@ -77,7 +77,7 @@ public class BomberLogic : MonoBehaviour
         {
            
             GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, -90));
-            SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
+            //SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
             //bombsprite.flipY = true;
 
             // Set the bomb's initial velocity to match the bomber's velocity
@@ -107,7 +107,7 @@ public class BomberLogic : MonoBehaviour
         else if(bombtype == 2 && (!movingRight))
         {
             GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Quaternion.Euler(0, 0, -90));
-            SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
+            //SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
             //bombsprite.flipY = true;
             // Set the bomb's initial velocity to match the bomber's velocity
             Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();

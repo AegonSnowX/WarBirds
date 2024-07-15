@@ -89,7 +89,7 @@ public class VehicleMovement : MonoBehaviour
         }
         if(angle >90)
             {
-            turret.transform.rotation = Quaternion.Euler(0f, 180f, angle);
+            turret.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
 
 
