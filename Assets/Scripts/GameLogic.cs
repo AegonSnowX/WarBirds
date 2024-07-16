@@ -30,13 +30,13 @@ public class Gamelogic : MonoBehaviour
             float y = Random.Range(1.50f, 3.60f);
             int shuffleside = Random.Range(1, 3);
             if (shuffleside == 2) 
-            { Instantiate(Plane, new Vector2(-x, y), Quaternion.Euler(180f, 0f, 180f)); }
+            { 
+                Instantiate(Plane, new Vector2(-x, y), Quaternion.Euler(180f, 0f, 180f));
+            }
             else
             {
                 Instantiate(Plane, new Vector2(x, y), Quaternion.Euler(180f, 0f, 180f));
             }
-           
-
             wavetext.text = "Wave: " + wave; 
             Debug.Log("Spawn");
         }

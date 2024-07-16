@@ -33,6 +33,7 @@ public class BomberLogic : MonoBehaviour
         {
             // Continue moving in the current direction
             bomberRb.velocity = new Vector2(movingRight ? FlightSpeed : -FlightSpeed, bomberRb.velocity.y);
+            
         }
         else
         {
