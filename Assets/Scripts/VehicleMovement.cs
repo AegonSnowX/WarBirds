@@ -22,6 +22,7 @@ public class VehicleMovement : MonoBehaviour
     [SerializeField] GameObject turret; // Reference to the turret
     [SerializeField] float turretOffsetXRight = -3.9f; // Adjust this value for right facing
     [SerializeField] float turretOffsetXLeft = 3.9f; // Adjust this value for left facing
+    [SerializeField] SpriteRenderer turretHead;
     public float angle { get; private set; }
     void Start()
     {
@@ -85,11 +86,15 @@ public class VehicleMovement : MonoBehaviour
 
         if (angle > 0)
         {
-             turret.transform.rotation = Quaternion.Euler(0f, 0f, angle); 
+            //turretHead.flipY = false also Works but collider won't change, only visual
+            turret.transform.localScale = new Vector3(0.459184f, 0.5156348f, 1);
+            turret.transform.rotation = Quaternion.Euler(0f, 0f, angle); 
         }
         if(angle >90)
             {
-            turret.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            //turretHead.flipY = true also Works but collider won't change, only visual
+            turret.transform.localScale = new Vector3(0.459184f, -0.5156348f, 1);
+            turret.transform.rotation = Quaternion.Euler(0, 0f, angle);
         }
 
 
