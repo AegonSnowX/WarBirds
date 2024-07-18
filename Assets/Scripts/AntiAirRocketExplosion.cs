@@ -22,10 +22,8 @@ public class AntiAirRocketExplosion : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-          collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.3f;
-        Destroy(gameObject);
-        //if(collision.gameObject.transform.position.y<=1f)
-        
+
+            Destroy(gameObject);
             Destroy(collision.gameObject);  
         
         

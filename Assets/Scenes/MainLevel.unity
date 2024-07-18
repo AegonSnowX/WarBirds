@@ -1398,7 +1398,7 @@ GameObject:
   - component: {fileID: 1120171975}
   m_Layer: 0
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Enemy Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2273,6 +2273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1.5
   Helicopter: {fileID: 1965021171}
+  Bullets: {fileID: 3039394586041411236, guid: 164b04b1ea62c66478a508e12dba6147, type: 3}
+  firingpoint: {fileID: 1090102754}
+  vehicle: {fileID: 228138788}
 --- !u!212 &1965021173
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2361,15 +2364,15 @@ Transform:
   m_GameObject: {fileID: 1965021171}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.12, y: 3.91, z: 0}
+  m_LocalPosition: {x: -8.16, y: 3, z: 0}
   m_LocalScale: {x: 0.100472525, y: 0.09345221, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1090102755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &1965021176
-EdgeCollider2D:
+--- !u!61 &1965021176
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2400,39 +2403,19 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.085950375, y: 0.1663394}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 12.8, y: 7.31}
+    newSize: {x: 12.8, y: 7.31}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 12.284284, y: 5.2769833}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: -6.3079953, y: -2.5916727}
-  - {x: -6.29751, y: -0.85284376}
-  - {x: -5.8069406, y: -0.21610391}
-  - {x: -6.3318515, y: 1.6716881}
-  - {x: -5.525212, y: 1.9299549}
-  - {x: -5.417194, y: 2.829079}
-  - {x: -3.9462733, y: 2.103273}
-  - {x: -3.754613, y: -0.23800874}
-  - {x: -3.3892984, y: 1.994098}
-  - {x: 0.7241459, y: 2.8440447}
-  - {x: 1.8827925, y: 2.8189404}
-  - {x: 2.116445, y: 1.9603579}
-  - {x: 6.4130025, y: 1.9045086}
-  - {x: 6.334495, y: 1.3739893}
-  - {x: 3.242535, y: 1.2678912}
-  - {x: 5.945465, y: -0.2344039}
-  - {x: 5.8768716, y: -1.1684752}
-  - {x: 4.6434617, y: -1.9246053}
-  - {x: 2.9680197, y: -1.9303708}
-  - {x: 2.6965516, y: -2.5082004}
-  - {x: 1.6827985, y: -2.6498067}
-  - {x: 1.4260049, y: -1.8237729}
-  - {x: -1.3758403, y: -1.896419}
-  - {x: -5.0128107, y: -1.5666718}
-  - {x: -5.4332824, y: -2.4240887}
-  - {x: -6.2969723, y: -2.512536}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &2093436814
 GameObject:
   m_ObjectHideFlags: 0
