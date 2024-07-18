@@ -449,6 +449,7 @@ MonoBehaviour:
   turret: {fileID: 1362922111}
   turretOffsetXRight: -3.27
   turretOffsetXLeft: 3.5
+  turretHead: {fileID: 1362922113}
 --- !u!60 &228138789
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2275,7 +2276,7 @@ MonoBehaviour:
   Helicopter: {fileID: 1965021171}
   Bullets: {fileID: 3039394586041411236, guid: 164b04b1ea62c66478a508e12dba6147, type: 3}
   firingpoint: {fileID: 1090102754}
-  vehicle: {fileID: 228138788}
+  truck: {fileID: 0}
 --- !u!212 &1965021173
 SpriteRenderer:
   m_ObjectHideFlags: 0
