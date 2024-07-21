@@ -4,9 +4,10 @@ using UnityEngine.EventSystems;
 public class BombLogic : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float torqueAmount = 0.2f;  // Adjust this value to control the rotation speed
+    public float torqueAmount = 0.15f;  // Adjust this value to control the rotation speed
     public ContactFilter2D groundContactFilter;
     [SerializeField] GameObject Explosion1Prefab;
+    
    
     void Awake()
     {
@@ -62,10 +63,13 @@ public class BombLogic : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         BombExplosion();
+       
     }
     void BombExplosion()
     {
         GameObject explosion = Instantiate(Explosion1Prefab,transform.position, Quaternion.identity);
+       
+
         ExplosionDestroyer destroyer = explosion.AddComponent<ExplosionDestroyer>();
         destroyer.lifeSecondsLeft = 4;
         Destroy(gameObject);

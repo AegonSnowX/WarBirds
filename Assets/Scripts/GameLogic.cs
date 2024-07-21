@@ -13,9 +13,9 @@ public class Gamelogic : MonoBehaviour
      {
 
      }
-     void LateUpdate()
+     void Update()
      {
-        if (GameObject.FindGameObjectWithTag("Enemy Plane") == null)
+     if (GameObject.FindGameObjectWithTag("Enemy Plane") == null)
         {
             Wave();
         }
