@@ -1,4 +1,7 @@
+using System;
+using System.Threading;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class HelicopterLogic : MonoBehaviour
 {
@@ -7,22 +10,47 @@ public class HelicopterLogic : MonoBehaviour
     private bool movingRight = true;
     [SerializeField] GameObject Bullets;
     [SerializeField] GameObject firingpoint;
-    float firingDelay = 0f;
-    public VehicleMovement truck;
-  float BulletSpeed = 5f;
-   
+    private  Transform truck;
+    [SerializeField] Rigidbody2D bulletrb;
+    float BulletSpeed = 2f;
+    float firingDelay = 10.5f;
+    float fireRate = 0.15f;
+    float bulletsFiredInBurst = 0;
+    float bulletsPerBurst = 7;
+    float nextFireTime = 0f;
+    float spreadangle = 25f;
+    float initialfiringwait = 0f;
+    float BulletSpread=5f;
+    
 
-
-    void Update()
-    {
-         MoveHelicopter();
-        FiringMechanism();
-    }
 
     private void Start()
     {
-
+        truck = GameObject.FindGameObjectWithTag("Player").transform;
     }
+
+    void Update()
+    {
+        initialfiringwait += Time.deltaTime;
+        if (initialfiringwait > 11)
+        {
+            if (bulletsFiredInBurst < bulletsPerBurst)
+            {
+                if (Time.time > nextFireTime)
+                {
+                    FiringMechanism();
+                    nextFireTime = Time.time + fireRate;
+                    bulletsFiredInBurst++;
+                }
+            }
+            else if (Time.time > nextFireTime + firingDelay)
+            {
+                bulletsFiredInBurst = 0; // Reset the burst counter
+            }
+        }
+        MoveHelicopter();
+    }
+
     private void MoveHelicopter()
     {
         if (movingRight)
@@ -48,20 +76,22 @@ public class HelicopterLogic : MonoBehaviour
         }
     }
     public void FiringMechanism()
-    {/*
-        firingDelay += Time.deltaTime;
-
-        if (movingRight && (firingDelay >= 7)&&(Helicopter.transform.position.x<=-5))
+    {
+      
+        if (truck != null)
         {
-            Debug.Log("Initiating Firing");
-            for (int i = 0; i < 7; i++)
-            {
-               GameObject HelicopterProjectile = Instantiate(Bullets, firingpoint.transform.position, Quaternion.Euler(180f, 0f, 180f));
-                Vector3 target = truck.transform.position-firingpoint.transform.position;   
-                target.Normalize();
-                HelicopterProjectile.GetComponent<Rigidbody2D>().AddForce(target * BulletSpeed);
-            }
-            firingDelay = 0f;
-        }*/          // So many issues needs debugging , trying something but didnt worked.
-    }
+            
+            Vector2 firingdirection = (truck.position - firingpoint.transform.position).normalized;
+            Vector2 direction = (truck.position - firingpoint.transform.position);
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            spreadangle = Random.Range(-BulletSpread, BulletSpread);
+            Quaternion spread =Quaternion.Euler(0f,0f, spreadangle);
+            Vector2 spreaddirection = spread * firingdirection;
+            GameObject HelicopterProjectile = Instantiate(Bullets, firingpoint.transform.position,Quaternion.Euler(180f,0f,-angle));
+            Rigidbody2D rb = HelicopterProjectile.GetComponent<Rigidbody2D>();
+            rb.velocity = spreaddirection * BulletSpeed;
+            Debug.Log("Angle =" + angle);
+            
+        }
+    }    
 }

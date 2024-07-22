@@ -10,17 +10,17 @@ public class Gamelogic : MonoBehaviour
     public GameObject Plane;
 
      void Start()
-    {
+     {
 
-    }
-     void LateUpdate()
-    {
-        if (GameObject.FindGameObjectWithTag("Enemy Plane") == null)
+     }
+     void Update()
+     {
+     if (GameObject.FindGameObjectWithTag("Enemy Plane") == null)
         {
             Wave();
         }
         
-    }
+     }
     public void Wave()
     {
 
@@ -42,6 +42,6 @@ public class Gamelogic : MonoBehaviour
         }
         wave++;
 
-}
+    }
 }
 
