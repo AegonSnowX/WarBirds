@@ -23,7 +23,7 @@ public class BomberLogic : MonoBehaviour
 
     void Update()
     {
-        BomberMovement();
+        //BomberMovement();
         HandleBombDropping();
     }
 
