@@ -23,6 +23,7 @@ public class BomberLogic : MonoBehaviour
 
     void Update()
     {
+        //Movement is done on GameManagment
         //BomberMovement();
         HandleBombDropping();
     }
