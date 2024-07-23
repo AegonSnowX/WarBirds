@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class HelicopterLogic : MonoBehaviour
 {
-    [SerializeField] float Speed = 5.0f;
+    [SerializeField] float Speed = 6.0f;
     [SerializeField] GameObject Helicopter;
     private bool movingRight = true;
     [SerializeField] GameObject Bullets;

@@ -7,4 +7,5 @@ public class GameManagerScriptableObject : ScriptableObject
 {
     public string prefabName;
     public float speed;
+    public string chanceOfSPaw;
 }

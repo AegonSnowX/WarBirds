@@ -16,6 +16,7 @@ public class A10 : MonoBehaviour
     float bulletsPerBurst = 20;
     float fireRate = 0.05f;
     float nextFireTime = 0f;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -70,5 +71,7 @@ public class A10 : MonoBehaviour
         GameObject A10Projectile = Instantiate(Bullets, FiringPoint.transform.position, Quaternion.Euler(180f,0f,-angle));
         Rigidbody2D rb = A10Projectile.GetComponent<Rigidbody2D>();
         rb.velocity = spreaddirection * BulletSpeed;
+
+       
     }
 }
