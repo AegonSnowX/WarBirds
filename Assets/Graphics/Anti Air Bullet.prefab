@@ -184,5 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aed115035d197041a202035db04b864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion1Prefab: {fileID: 0}
-  bomberLogic: {fileID: 0}
+  ExplosionOfPlanes: {fileID: 4685861756448945735, guid: 5cea77b9751c15541a176f265d14cee8, type: 3}
