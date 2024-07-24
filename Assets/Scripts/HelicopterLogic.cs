@@ -83,6 +83,7 @@ public class HelicopterLogic : MonoBehaviour
             
             Vector2 firingdirection = (truck.position - firingpoint.transform.position).normalized;
             Vector2 direction = (truck.position - firingpoint.transform.position);
+
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             spreadangle = Random.Range(-BulletSpread, BulletSpread);
             Quaternion spread =Quaternion.Euler(0f,0f, spreadangle);
