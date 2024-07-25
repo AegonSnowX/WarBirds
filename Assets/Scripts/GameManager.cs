@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
             StartNextWave();
         }
     }
-    void Flip(GameObject objectToFlip) // will flip any 2d object
+    public void Flip(GameObject objectToFlip) // will flip any 2d object
     {
         Vector2 theScale = objectToFlip.transform.localScale;
         theScale.x *= -1;
@@ -101,9 +101,11 @@ public class GameManager : MonoBehaviour
         {
             Flip(chosenPrefab); // plane will flipp when it is coming from right
             chosenPrefabRb.velocity = chosenPrefab.transform.TransformDirection(Vector2.left);
+            isSpawnedRight = true;
         }
         else
         {
+            isSpawnedRight = false;
             chosenPrefabRb.velocity = chosenPrefab.transform.TransformDirection(Vector2.right);
         }
 

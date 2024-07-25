@@ -48,7 +48,7 @@ public class HelicopterLogic : MonoBehaviour
                 bulletsFiredInBurst = 0; // Reset the burst counter
             }
         }
-        MoveHelicopter();
+        //MoveHelicopter();
     }
 
     private void MoveHelicopter()

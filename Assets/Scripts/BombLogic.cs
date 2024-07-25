@@ -16,8 +16,17 @@ public class BombLogic : MonoBehaviour
 
     void Start()
     {
-
         rb.AddTorque(torqueAmount);
+
+        // So this will get the instance of GameManager and besed on that assign the bomb direction either to 90 or -90
+        if (GameManager.Instance.isSpawnedRight)
+        {
+            rb.SetRotation(-90);
+        }
+        else
+        {
+            rb.SetRotation(90);
+        }
     }
 
 
@@ -42,7 +51,7 @@ public class BombLogic : MonoBehaviour
         result = new RaycastHit2D();
         return false;
     }
-
+ 
     void FixedUpdate()
     {
 

@@ -78,7 +78,7 @@ public class BomberLogic : MonoBehaviour
         }else if((bombtype == 1) && (!movingRight) && GameManager.Instance.isSpawnedRight)
         {
            
-            GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, -90));
+            GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, 90));
             //SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
             //bombsprite.flipY = true;
 
@@ -108,7 +108,7 @@ public class BomberLogic : MonoBehaviour
         }
         else if(bombtype == 2 && (!movingRight) && GameManager.Instance.isSpawnedRight)
         {
-            GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Quaternion.Euler(0, 0, -90));
+            GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Quaternion.Euler(0, 0, 90));
             //SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
             //bombsprite.flipY = true;
             // Set the bomb's initial velocity to match the bomber's velocity
