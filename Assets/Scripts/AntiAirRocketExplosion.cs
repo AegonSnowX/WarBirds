@@ -30,8 +30,13 @@ public class AntiAirRocketExplosion : MonoBehaviour
         ExplosionDestroyer destroyer = explosion.AddComponent<ExplosionDestroyer>();
         destroyer.lifeSecondsLeft = 4;
         Destroy(gameObject);
-        GameManager.Instance.enemyDestroyed();
+
+        // Enemy Destryoed will remove one enemy from RemainingEnemies which is essentail for StartNextWave() Cycle
+        if (collision.gameObject.CompareTag("Enemy Plane")){
+            GameManager.Instance.enemyDestroyed();
+        }
 
     }
+
 }
 

@@ -4,6 +4,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/// <summary>
+/// The wave system is adaptable based on the wave round as it myltiply based on the wave number. 
+/// TO DO:
+/// - Score System need to be imlemented. In order to the scoring system I beilive I need to create ScriptableObject for them and give behaviors by script
+/// - Overall Enemy Spawn Proababilty be added to game. as for example bomber less chance of spawn.
+/// Note: NUI = Not in use (yet)
+///       As is = It is obvious 
+/// </summary>
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -16,18 +25,27 @@ public class GameManager : MonoBehaviour
     [SerializeField] float minY = 5;
     [SerializeField] int intervalTime = 3;
     [SerializeField] int waveSpawnModifier = 5;
-
-    private bool alreadySpawned;
-
-    private int spawnedCount = 0;
-    private int spawnLimit = 1;
-    
+   
     private int currentWave;
     private int enemiesToSpawn;
     private int enemiesRemaining;
-    static private int _score;
+    
+    static private int _score; //NIU
 
     [SerializeField] List<GameObject> enemyPrefabs;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // I will add this in case we want to change scenes then gameManager won't get destroyed while loading other scenes
+        }
+        else
+        {
+            Destroy(gameObject); // if there is an instance there it will destroy
+        }
+    }
 
     private void Start()
     {
@@ -40,11 +58,11 @@ public class GameManager : MonoBehaviour
         currentWave++;
         enemiesToSpawn = currentWave * waveSpawnModifier;
         enemiesRemaining = enemiesToSpawn;
-        waveText.text = "Wave:" + currentWave;
+        waveText.text = "Wave: " + currentWave;
         StartCoroutine("SpawnEnemiesEnum");
     }
 
-    IEnumerator SpawnEnemiesEnum()
+    IEnumerator SpawnEnemiesEnum() // I just seperated the loop from the SpawnEnemies Function to make a better WaitforSeconds(I guess it's more stable like this)
     {
         for (int i = 0; i < enemiesToSpawn; i++)
         {
@@ -52,21 +70,30 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(0, intervalTime));
         }
     }
-
-    void WaveCountUp()
+    public void enemyDestroyed() //As is 
     {
-        currentWave++;
+        enemiesRemaining--;
+
+        if (enemiesRemaining <= 0)
+        {
+            StartNextWave();
+        }
+    }
+    void Flip(GameObject objectToFlip) // will flip any 2d object
+    {
+        Vector2 theScale = objectToFlip.transform.localScale;
+        theScale.x *= -1;
+        objectToFlip.transform.localScale = theScale;
 
     }
-
     void SpawnEnemies()
     {
-        // Currentily Changing it to IEnum
-        // Currently Using it again
+        // Randomize Position & GameObject
         float RandomXSpawnPosition = Random.Range(0, 2) == 0 ? xPos : -xPos;
         float RandomYSpawnPosition = Random.Range(minY, maxY + 1);
         GameObject randomPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
 
+        // Instantiate & get RigidBody
         GameObject chosenPrefab = Instantiate(randomPrefab, new Vector2(RandomXSpawnPosition, RandomYSpawnPosition), randomPrefab.transform.rotation);
         Rigidbody2D chosenPrefabRb = chosenPrefab.GetComponent<Rigidbody2D>();
 
@@ -79,9 +106,16 @@ public class GameManager : MonoBehaviour
         {
             chosenPrefabRb.velocity = chosenPrefab.transform.TransformDirection(Vector2.right);
         }
-        alreadySpawned = true;
 
     }
+
+    void WaveCountUp()
+    {
+        currentWave++;
+
+    } // NIU
+
+ 
 
     int CalculateSpawning()
     {
@@ -90,15 +124,13 @@ public class GameManager : MonoBehaviour
         {
             EnemyspawnCountPerWave *= 2;
         }
-        spawnLimit = EnemyspawnCountPerWave;
         return EnemyspawnCountPerWave;
-    }
+    } // NIU
 
-    bool IsEnemyRemaining()
+    bool IsEnemyRemaining() //NIU
     {
         if (GameObject.FindGameObjectWithTag("Enemy Plane") == null)
         {
-            alreadySpawned = false;
             return false;
         }
         else
@@ -107,31 +139,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Flip(GameObject objectToFlip)
-    {
-        Vector2 theScale = objectToFlip.transform.localScale;
-        theScale.x *= -1;
-        objectToFlip.transform.localScale = theScale;
-
-    }
-
-    void ObjectMove(Rigidbody2D rBToMove, Vector2 objectVelocity)
+    void ObjectMove(Rigidbody2D rBToMove, Vector2 objectVelocity) // NIU
     {
         rBToMove.velocity = objectVelocity;
     }
 
 
-    IEnumerator holdForSeconds(int seconds)
+    IEnumerator holdForSeconds(int seconds) // NIU
     {
         yield return new WaitForSeconds(seconds);
         SpawnEnemies();
     }
 
-    IEnumerator SpawnEnemiesFromDifferentLocation(int numToSpawn, int intervalTime, int secondsToStart)
+    IEnumerator SpawnEnemiesFromDifferentLocation(int numToSpawn, int intervalTime, int secondsToStart) // NIU (An enumerator replica of the function of SpawnEnemies)
     {
         yield return new WaitForSeconds(secondsToStart);
-        while (spawnedCount != spawnLimit)
-        {
+
             //int numbersToSpawn = CalculateSpawning();
 
             float RandomXSpawnPosition = Random.Range(0, 2) == 0 ? xPos : -xPos;
@@ -153,17 +176,7 @@ public class GameManager : MonoBehaviour
                 chosenPrefabRb.velocity = chosenPrefab.transform.TransformDirection(Vector2.right);
             }
             yield return new WaitForSeconds(intervalTime);
-
-            alreadySpawned = true;
-        }
+        
     }
-    public void enemyDestroyed()
-    {
-        enemiesRemaining--;
-
-        if (enemiesRemaining <= 0)
-        {
-            StartNextWave();
-        }
-    }
+  
 }
