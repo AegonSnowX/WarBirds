@@ -7,6 +7,8 @@ public class BombLogic : MonoBehaviour
     public float torqueAmount = 0.15f;  // Adjust this value to control the rotation speed
     public ContactFilter2D groundContactFilter;
     [SerializeField] GameObject Explosion1Prefab;
+
+    public BomberLogic parentBomber; // As is
     
    
     void Awake()
@@ -17,15 +19,13 @@ public class BombLogic : MonoBehaviour
     void Start()
     {
         rb.AddTorque(torqueAmount);
-
-        // So this will get the instance of GameManager and besed on that assign the bomb direction either to 90 or -90
-        if (GameManager.Instance.isSpawnedRight)
+        
+        if (parentBomber != null)
         {
-            rb.SetRotation(-90);
-        }
-        else
-        {
-            rb.SetRotation(90);
+            if (!parentBomber.movingRight)
+            {
+                rb.SetRotation(-110); // this will rotate bomb to the other side while spawning
+            }
         }
     }
 
