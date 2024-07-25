@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 261744255}
   - component: {fileID: 261744254}
   m_Layer: 0
-  m_Name: GameManger
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -877,10 +877,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1eb0941973943648ac9a1c19756ff37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpawnedRight: 0
+  waveText: {fileID: 1911250261}
   xPos: 10
   maxY: 4
   minY: 2
   intervalTime: 3
+  waveSpawnModifier: 5
   enemyPrefabs:
   - {fileID: 4086139513523288727, guid: 1cf19705d1acc854a98dbf1b228ba7e9, type: 3}
   - {fileID: 5713733500201722278, guid: 7468a8720b17b2a49889ad92561e6483, type: 3}
@@ -2254,7 +2257,7 @@ GameObject:
   - component: {fileID: 1911250262}
   - component: {fileID: 1911250261}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WaveText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

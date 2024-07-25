@@ -12,7 +12,7 @@ public class BomberLogic : MonoBehaviour
     [SerializeField] GameObject Bomb2Prefab;
     [SerializeField] SpriteRenderer plane;
     [SerializeField] bool movingRight = true;
-    
+
 
 
     void Start()
@@ -57,7 +57,7 @@ public class BomberLogic : MonoBehaviour
         }
     } 
 
-    void DropBomb()
+    void DropBomb() //Rewrok can be done on this function, Unecessary Repetition
     {
         int bombtype = Random.Range(1, 3);
         if ((bombtype == 1)&&(movingRight))
@@ -75,7 +75,7 @@ public class BomberLogic : MonoBehaviour
                 bombRb.velocity = bomberRb.velocity;
 
             }
-        }else if((bombtype == 1) && (!movingRight))
+        }else if((bombtype == 1) && (!movingRight) && GameManager.Instance.isSpawnedRight)
         {
            
             GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, -90));
@@ -106,7 +106,7 @@ public class BomberLogic : MonoBehaviour
 
             }
         }
-        else if(bombtype == 2 && (!movingRight))
+        else if(bombtype == 2 && (!movingRight) && GameManager.Instance.isSpawnedRight)
         {
             GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Quaternion.Euler(0, 0, -90));
             //SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
