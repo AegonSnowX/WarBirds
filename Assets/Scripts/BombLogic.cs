@@ -74,7 +74,6 @@ public class BombLogic : MonoBehaviour
         destroyer.lifeSecondsLeft = 4;
         Destroy(gameObject);
       
- 
     }
 
 }
