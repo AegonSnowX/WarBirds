@@ -11,11 +11,11 @@ public class video : MonoBehaviour
 {
     float timer = 0f;
     [SerializeField] Button skipbutton;
-    [SerializeField]   VideoPlayer vp;
+    
     private void Start()
     {
         skipbutton.gameObject.SetActive(false);
-        vp.loopPointReached += OnVideoEnd;
+       
 
     }
     private void Update()
@@ -24,13 +24,19 @@ public class video : MonoBehaviour
         if (timer > 10) 
         {
             skipbutton.gameObject.SetActive(true);
+         
+        }
+        if(timer>98)
+        { 
+            LoadNextScene();
         }
     }
      public void SkipTrailer()
     {
         SceneManager.LoadScene(2);
     }
-    private void OnVideoEnd(VideoPlayer vp)
+    
+    private void LoadNextScene()
     {
         SceneManager.LoadScene(2);
     }
