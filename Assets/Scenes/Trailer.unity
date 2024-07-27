@@ -489,7 +489,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165353722}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: f94999fe9fef0fd4ca7e555a7c435c05, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 1a998c8679eb7a446ab5025b44708f35, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 317168208}
@@ -545,7 +545,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skipbutton: {fileID: 1192233312}
-  vp: {fileID: 0}
 --- !u!1 &1192233310
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 188.96948, y: -121.422424}
+  m_AnchoredPosition: {x: 148, y: -95}
   m_SizeDelta: {x: 199.939, y: 58.8448}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1192233312
@@ -654,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
