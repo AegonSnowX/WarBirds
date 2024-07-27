@@ -18,6 +18,7 @@ public class BomberLogic : MonoBehaviour
 
 
 
+
     void Start()
     {
         SetRandomBombDropInterval();
@@ -51,7 +52,7 @@ public class BomberLogic : MonoBehaviour
 
     public void BomberMovement()
     {
-        if (transform.position.x > -16 && transform.position.x < 16)
+        if (transform.position.x > -GameManager.Instance.maxBorderX && transform.position.x < GameManager.Instance.maxBorderX)
         {
             // Continue moving in the current direction
             bomberRb.velocity = new Vector2(movingRight ? FlightSpeed : -FlightSpeed, bomberRb.velocity.y);

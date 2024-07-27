@@ -34,7 +34,7 @@ public class BombLogic : MonoBehaviour
     {
 
     }
-
+    
     private bool raycastGround(out RaycastHit2D result)
     {
 

@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     public bool isSpawnedRight;
     public TextMeshProUGUI waveText;
+    public float maxBorderX = 16;
 
     [SerializeField] float xPos = 10;
     [SerializeField] float maxY = 10;
@@ -111,6 +112,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void ChangeDirectionWhileAtBorder()
+    {
+        
+    }
+    
     void WaveCountUp()
     {
         currentWave++;
