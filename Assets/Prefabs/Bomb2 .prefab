@@ -129,7 +129,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -177,3 +177,4 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   Explosion1Prefab: {fileID: 755802778073451349, guid: 72c0253db73885644a2455afce6219ba, type: 3}
+  parentBomber: {fileID: 0}
