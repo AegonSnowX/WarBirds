@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1999161251543436174}
   - component: {fileID: 5694116282445802933}
   - component: {fileID: 3898161243402994595}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Helicopter
   m_TagString: Enemy Plane
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3406770606678755593}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Firing Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
