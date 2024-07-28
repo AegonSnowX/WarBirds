@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
 
     // Don't forget, items here should be add based on their difficulty
     [SerializeField] ItemData[] itemDataArray;
+    [SerializeField] float speed;
+    private GameObject temp;
 
 
     static private int _score; //NIU
@@ -127,18 +129,7 @@ public class GameManager : MonoBehaviour
         GameObject chosenPrefab = Instantiate(randomPrefab, new Vector2(RandomXSpawnPosition, RandomYSpawnPosition), randomPrefab.transform.rotation);
         Rigidbody2D chosenPrefabRb = chosenPrefab.GetComponent<Rigidbody2D>();
 
-        if (RandomXSpawnPosition == xPos)
-        {
-            Flip(chosenPrefab); // plane will flipp when it is coming from right
-            chosenPrefabRb.velocity = chosenPrefab.transform.TransformDirection(Vector2.left);
-            isSpawnedRight = true;
-        }
-        else
-        {
-            isSpawnedRight = false;
-            chosenPrefabRb.velocity = chosenPrefab.transform.TransformDirection(Vector2.right);
-        }
-
+        enemyMovements(chosenPrefab, chosenPrefabRb, RandomXSpawnPosition, temp);
     }
 
     // it's a bit complicated but at the same time lerp is an easy thing to understand. and useful. 
@@ -154,16 +145,53 @@ public class GameManager : MonoBehaviour
         float randomValue = Random.value;
         if (randomValue < easyChance)
         {
+            //speed = itemDataArray[(int)Difficulty.easy].speed;
+            temp = itemDataArray[((int)Difficulty.easy)].prefab;
             return itemDataArray[((int)Difficulty.easy)].prefab;
         }
         else if (randomValue < easyChance + mediumChance)
         {
+            //speed = itemDataArray[(int)Difficulty.medium].speed;
+            temp = itemDataArray[((int)Difficulty.medium)].prefab;
             return itemDataArray[((int)Difficulty.medium)].prefab;
         }
         else
         {
+            //speed = itemDataArray[(int)Difficulty.hard].speed;
+            Debug.Log("Hard Speed");
+            temp = itemDataArray[((int)Difficulty.hard)].prefab;
             return itemDataArray[((int)Difficulty.hard)].prefab;
         }
+
+    }
+
+    void enemyMovements (GameObject prefabToMove, Rigidbody2D rb, float rndSpawnPosX, GameObject temp)
+    {
+        if (rndSpawnPosX == xPos)
+        {
+            Flip(prefabToMove); // plane will flipp when it is coming from right
+            rb.velocity = CalculateSpeed(prefabToMove, Vector2.left, temp);
+            isSpawnedRight = true;
+            
+        }
+        else
+        {
+            isSpawnedRight = false;
+            rb.velocity = CalculateSpeed(prefabToMove, Vector2.right, temp);
+        }
+    }
+
+    Vector2 CalculateSpeed(GameObject prefabToCalculate, Vector2 directionToMove, GameObject temp)
+    {
+        if (temp == itemDataArray[(int)Difficulty.easy].prefab)
+            return prefabToCalculate.transform.TransformDirection(directionToMove) * itemDataArray[(int)Difficulty.easy].speed;
+
+        else if (temp == itemDataArray[(int)Difficulty.medium].prefab)
+            return prefabToCalculate.transform.TransformDirection(directionToMove) * itemDataArray[(int)Difficulty.medium].speed;
+
+        else
+            return prefabToCalculate.transform.TransformDirection(directionToMove) * itemDataArray[(int)Difficulty.hard].speed;
+
 
     }
 
