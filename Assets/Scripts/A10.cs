@@ -27,8 +27,8 @@ public class A10 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
-        EndLife();
+        //Movement();
+        //EndLife();
         if (PlaneA10.transform.position.x < 9)
         {
             if (bulletsFiredInBurst < bulletsPerBurst)
@@ -49,7 +49,7 @@ public class A10 : MonoBehaviour
     }
     public void Movement()
     { 
-      transform.Translate(Vector3.left * Time.deltaTime * FlightSpeed);
+        transform.Translate(Vector3.left * Time.deltaTime * FlightSpeed);
     }
     public void EndLife()
     {
