@@ -7,6 +7,8 @@ public class BombLogic : MonoBehaviour
     public float torqueAmount = 0.15f;  // Adjust this value to control the rotation speed
     public ContactFilter2D groundContactFilter;
     [SerializeField] GameObject Explosion1Prefab;
+
+    public BomberLogic parentBomber; // As is
     
    
     void Awake()
@@ -16,8 +18,15 @@ public class BombLogic : MonoBehaviour
 
     void Start()
     {
-
         rb.AddTorque(torqueAmount);
+        
+        if (parentBomber != null)
+        {
+            if (!parentBomber.movingRight)
+            {
+                rb.SetRotation(-110); // this will rotate bomb to the other side while spawning
+            }
+        }
     }
 
 
@@ -25,7 +34,7 @@ public class BombLogic : MonoBehaviour
     {
 
     }
-
+    
     private bool raycastGround(out RaycastHit2D result)
     {
 
@@ -42,7 +51,7 @@ public class BombLogic : MonoBehaviour
         result = new RaycastHit2D();
         return false;
     }
-
+ 
     void FixedUpdate()
     {
 

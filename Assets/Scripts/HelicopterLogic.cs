@@ -48,7 +48,7 @@ public class HelicopterLogic : MonoBehaviour
                 bulletsFiredInBurst = 0; // Reset the burst counter
             }
         }
-        MoveHelicopter();
+        //MoveHelicopter();
     }
 
     private void MoveHelicopter()
@@ -58,7 +58,8 @@ public class HelicopterLogic : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * Speed);
             Helicopter.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
-            if (transform.position.x >= 8.1f)
+
+            if (transform.position.x >= GameManager.Instance.maxBorderX - 8.1f)
             {
                 movingRight = false;
             }
@@ -68,7 +69,7 @@ public class HelicopterLogic : MonoBehaviour
             transform.Translate(Vector3.left * Time.deltaTime * -Speed);
             Helicopter.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
-            if (transform.position.x <= -8.1f)
+            if (transform.position.x <= -GameManager.Instance.maxBorderX + 8.1f)
             {
                 movingRight = true;
 
