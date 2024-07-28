@@ -31,7 +31,16 @@ public class GameManager : MonoBehaviour
     private int currentWave;
     private int enemiesToSpawn;
     private int enemiesRemaining;
-    
+
+    // Proability
+    [SerializeField] GameObject CommonChance;
+    [SerializeField] GameObject UncommonChance;
+    [SerializeField] GameObject RareChance;
+    [SerializeField] GameObject EpicChance;
+    [SerializeField] GameObject LegendaryChance;
+
+
+
     static private int _score; //NIU
 
     [SerializeField] List<GameObject> enemyPrefabs;
@@ -112,6 +121,11 @@ public class GameManager : MonoBehaviour
             chosenPrefabRb.velocity = chosenPrefab.transform.TransformDirection(Vector2.right);
         }
 
+    }
+
+    void ChooseRandomPrefab()
+    {
+        
     }
 
 
