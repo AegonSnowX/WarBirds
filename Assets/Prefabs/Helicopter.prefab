@@ -15,9 +15,8 @@ GameObject:
   - component: {fileID: 5694116282445802933}
   - component: {fileID: 3898161243402994595}
   m_Layer: 6
- 
   m_Name: Helicopter
-  m_TagString: Enemy Plane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,15 +200,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3406770606678755593}
-
   m_Layer: 6
-
-  m_Name: Firing Point
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3406770606678755593
 Transform:
   m_ObjectHideFlags: 0

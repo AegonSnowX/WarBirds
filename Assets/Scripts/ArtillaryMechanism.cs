@@ -9,7 +9,6 @@ public class ArtillaryMechanism : MonoBehaviour
     [SerializeField] GameObject aar;
     [SerializeField] GameObject firingpoint;
     
-    float bulletsPerBurst = 3;
     float nextFireTime = 0;
     float fireRate = 2f;
     [SerializeField] GameObject Head;
@@ -30,9 +29,10 @@ public class ArtillaryMechanism : MonoBehaviour
     }
     public void artillaryAttack()
     {
-        float angle = Random.Range(0, 30);
-        GameObject antiairRocket = Instantiate(aar, firingpoint.transform.position, Quaternion.Euler(0f,0f,angle));
-        Head.transform.rotation=Quaternion.Euler(0, 0, angle);
+        float angle = Random.Range(10, 70);
+      
+        GameObject antiairRocket = Instantiate(aar, firingpoint.transform.position, Quaternion.Euler(0f,0f,angle-37));
+        Head.transform.rotation=Quaternion.Euler(0, 0, angle-37);
        
         float angleInRadians= Mathf.Deg2Rad * angle;
         float x = Mathf.Cos(angleInRadians);

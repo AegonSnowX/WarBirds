@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3831315299141748402}
   - component: {fileID: 4244450170771745600}
   - component: {fileID: 6843124427615685779}
+  - component: {fileID: 146187659420707352}
   m_Layer: 0
   m_Name: 'Airdrop  '
   m_TagString: Untagged
@@ -213,7 +214,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -243,3 +244,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.52271, y: 3.53759}
   m_EdgeRadius: 0
+--- !u!114 &146187659420707352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7354867974825631744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e101ab6c9ce42409c2ee51e4a338a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parachute: {fileID: 1527975916821194701}

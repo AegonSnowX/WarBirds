@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8439106447757985768}
   - component: {fileID: 536947452219503506}
   - component: {fileID: 8127182523301783815}
+  - component: {fileID: 5706535437947895085}
   m_Layer: 0
   m_Name: Airdrop Russian
   m_TagString: Untagged
@@ -159,6 +160,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.3371882, y: 3.7108483}
   m_EdgeRadius: 0
+--- !u!114 &5706535437947895085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051431429420503424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e101ab6c9ce42409c2ee51e4a338a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Parachute: {fileID: 7328637940527609575}
 --- !u!1 &7328637940527609575
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 7328637940527609575}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -0.06, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0, z: 0}
   m_LocalScale: {x: 1.0499586, y: 1.0700963, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
