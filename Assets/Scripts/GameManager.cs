@@ -33,11 +33,12 @@ public class GameManager : MonoBehaviour
     private int enemiesRemaining;
 
     // Proability
-    [SerializeField] GameObject CommonChance;
-    [SerializeField] GameObject UncommonChance;
-    [SerializeField] GameObject RareChance;
-    [SerializeField] GameObject EpicChance;
-    [SerializeField] GameObject LegendaryChance;
+    [SerializeField] GameObject easyPrefab; // helicopter?
+    [SerializeField] GameObject mediumPrefab; // bomber?
+    [SerializeField] GameObject hardPrefab; // A10?
+    // Probably Special Prefab
+    [SerializeField] GameObject EpicChance; // Atom
+    [SerializeField] GameObject LegendaryChance; // something something
 
 
 
@@ -103,7 +104,7 @@ public class GameManager : MonoBehaviour
         // Randomize Position & GameObject
         float RandomXSpawnPosition = Random.Range(0, 2) == 0 ? xPos : -xPos;
         float RandomYSpawnPosition = Random.Range(minY, maxY + 1);
-        GameObject randomPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
+        GameObject randomPrefab = ChooseRandomPrefab();
 
         // Instantiate & get RigidBody
         GameObject chosenPrefab = Instantiate(randomPrefab, new Vector2(RandomXSpawnPosition, RandomYSpawnPosition), randomPrefab.transform.rotation);
@@ -123,9 +124,30 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void ChooseRandomPrefab()
+    // it's a bit complicated but at the same time lerp is an easy thing to understand. and useful. 
+    // so sahaj if you want just go to documentation or click on lerp in the editor
+    // or if you are lazy lerp ==> return a + (b - a) * Clamp01(t);
+    GameObject ChooseRandomPrefab()
     {
-        
+        float difficultyLevel = Mathf.Clamp01((float)currentWave / 10);
+        float easyChance = Mathf.Lerp(0.8f, 0.4f , difficultyLevel);
+        float mediumChance = Mathf.Lerp(0.2f, 0.4f, difficultyLevel);
+        float hardChance = Mathf.Lerp(0.1f, 0.2f, difficultyLevel);
+
+        float randomValue = Random.value;
+        if (randomValue < easyChance)
+        {
+            return easyPrefab;
+        }
+        else if (randomValue < easyChance + mediumChance)
+        {
+            return mediumPrefab;
+        }
+        else
+        {
+            return hardPrefab;
+        }
+
     }
 
 
