@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bombs
   - NoFireZone
+  - Enemy Plane
+  - Player Bullet
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - UI
   - Bomb
   - Player
-  - 
+  - Bullet
   - 
   - 
   - 
