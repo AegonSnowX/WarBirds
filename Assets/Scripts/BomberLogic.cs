@@ -11,7 +11,11 @@ public class BomberLogic : MonoBehaviour
     private float timeSinceLastBomb;
     [SerializeField] GameObject Bomb2Prefab;
     [SerializeField] SpriteRenderer plane;
-    [SerializeField] bool movingRight = true;
+    public bool movingRight = true;
+
+    private BombLogic bombLogic;
+    private float oldPosition;
+
 
 
 
@@ -21,16 +25,34 @@ public class BomberLogic : MonoBehaviour
         timeSinceLastBomb = 0f;
     }
 
+    private void LateUpdate()
+    {
+        oldPosition = transform.position.x;
+    }
+
     void Update()
     {
         //Movement is done on GameManagment
         //BomberMovement();
         HandleBombDropping();
+        TrackPosition();
+    }
+
+    void TrackPosition()
+    {
+        if (transform.position.x > oldPosition)
+        {
+            movingRight = true;
+        }
+        if (transform.position.x < oldPosition)
+        {
+            movingRight = false;
+        }
     }
 
     public void BomberMovement()
     {
-        if (transform.position.x > -16 && transform.position.x < 16)
+        if (transform.position.x > -GameManager.Instance.maxBorderX && transform.position.x < GameManager.Instance.maxBorderX)
         {
             // Continue moving in the current direction
             bomberRb.velocity = new Vector2(movingRight ? FlightSpeed : -FlightSpeed, bomberRb.velocity.y);
@@ -64,6 +86,10 @@ public class BomberLogic : MonoBehaviour
         // Instantiate a bomb at the bomber's position with the bomber's rotation
         {  
             GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, 90));
+
+            // I set the reference of Instantiated Bomber, it is repeatede through each one
+            bombLogic = bomb.GetComponent<BombLogic>();
+            bombLogic.parentBomber = this.gameObject.GetComponent<BomberLogic>();
             //SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
 
 
@@ -75,10 +101,13 @@ public class BomberLogic : MonoBehaviour
                 bombRb.velocity = bomberRb.velocity;
 
             }
-        }else if((bombtype == 1) && (!movingRight) && GameManager.Instance.isSpawnedRight)
+        }else if((bombtype == 1) && (!movingRight))
         {
            
-            GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, -90));
+            GameObject bomb = Instantiate(Bomb1Prefab, transform.position, Quaternion.Euler(0, 0, 0));
+
+            bombLogic = bomb.GetComponent<BombLogic>();
+            bombLogic.parentBomber = this.gameObject.GetComponent<BomberLogic>();
             //SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
             //bombsprite.flipY = true;
 
@@ -98,6 +127,9 @@ public class BomberLogic : MonoBehaviour
         {
             GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Quaternion.Euler(0, 0, 90));
 
+            bombLogic = bomb.GetComponent<BombLogic>();
+            bombLogic.parentBomber = this.gameObject.GetComponent<BomberLogic>();
+
             // Set the bomb's initial velocity to match the bomber's velocity
             Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();
             if (bombRb != null)
@@ -106,9 +138,12 @@ public class BomberLogic : MonoBehaviour
 
             }
         }
-        else if(bombtype == 2 && (!movingRight) && GameManager.Instance.isSpawnedRight)
+        else if(bombtype == 2 && (!movingRight))
         {
-            GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Quaternion.Euler(0, 0, -90));
+            GameObject bomb = Instantiate(Bomb2Prefab, transform.position, Quaternion.Euler(0, 0, 0));
+
+            bombLogic = bomb.GetComponent<BombLogic>();
+            bombLogic.parentBomber = this.gameObject.GetComponent<BomberLogic>();
             //SpriteRenderer bombsprite = bomb.GetComponent<SpriteRenderer>();
             //bombsprite.flipY = true;
             // Set the bomb's initial velocity to match the bomber's velocity
