@@ -21,7 +21,6 @@ public class BulletLogic : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Enemy Plane"))
         {
-            Destroy(gameObject);
             GameObject explosion = Instantiate(explosive, transform.position, Quaternion.identity);
             ExplosionDestroyer destroyer = explosion.AddComponent<ExplosionDestroyer>();
             destroyer.lifeSecondsLeft = 4;

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2047215782379200459}
   m_Layer: 3
   m_Name: 'Bomber '
-  m_TagString: Enemy Plane
+  m_TagString: Enemy Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
