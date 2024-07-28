@@ -138,8 +138,8 @@ public class GameManager : MonoBehaviour
     GameObject ChooseRandomPrefab()
     {
         float difficultyLevel = Mathf.Clamp01((float)currentWave / 10);
-        float easyChance = Mathf.Lerp(0.8f, 0.4f , difficultyLevel);
-        float mediumChance = Mathf.Lerp(0.2f, 0.4f, difficultyLevel);
+        float easyChance = Mathf.Lerp(0.7f, 0.4f , difficultyLevel);
+        float mediumChance = Mathf.Lerp(0.3f, 0.4f, difficultyLevel);
         float hardChance = Mathf.Lerp(0.1f, 0.2f, difficultyLevel);
 
         float randomValue = Random.value;
