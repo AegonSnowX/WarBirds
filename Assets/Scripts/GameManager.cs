@@ -26,11 +26,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] float minY = 5;
     [SerializeField] int intervalTime = 3;
     [SerializeField] int waveSpawnModifier = 5;
+    [SerializeField] float beforeWaveDelayTime = 2;
    
     private int currentWave;
     private int enemiesToSpawn;
     private int enemiesRemaining;
-    
+
+    // Proability
+    [SerializeField] GameObject CommonChance;
+    [SerializeField] GameObject UncommonChance;
+    [SerializeField] GameObject RareChance;
+    [SerializeField] GameObject EpicChance;
+    [SerializeField] GameObject LegendaryChance;
+
+
+
     static private int _score; //NIU
 
     [SerializeField] List<GameObject> enemyPrefabs;
@@ -65,6 +75,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnEnemiesEnum() // I just seperated the loop from the SpawnEnemies Function to make a better WaitforSeconds(I guess it's more stable like this)
     {
+        yield return new WaitForSeconds(beforeWaveDelayTime);
         for (int i = 0; i < enemiesToSpawn; i++)
         {
             SpawnEnemies();
@@ -111,6 +122,12 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    void ChooseRandomPrefab()
+    {
+        
+    }
+
 
     void ChangeDirectionWhileAtBorder()
     {

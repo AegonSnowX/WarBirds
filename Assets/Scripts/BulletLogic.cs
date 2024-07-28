@@ -19,11 +19,14 @@ public class BulletLogic : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
-        GameObject explosion = Instantiate(explosive, transform.position, Quaternion.identity);
-        ExplosionDestroyer destroyer = explosion.AddComponent<ExplosionDestroyer>();
-        destroyer.lifeSecondsLeft = 4;
-        Destroy(gameObject);
+        if (!collision.gameObject.CompareTag("Enemy Plane"))
+        {
+            Destroy(gameObject);
+            GameObject explosion = Instantiate(explosive, transform.position, Quaternion.identity);
+            ExplosionDestroyer destroyer = explosion.AddComponent<ExplosionDestroyer>();
+            destroyer.lifeSecondsLeft = 4;
+            Destroy(gameObject);
 
+        }
     }
 }
