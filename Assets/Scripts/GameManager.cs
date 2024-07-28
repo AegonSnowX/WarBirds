@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,6 +13,13 @@ using UnityEngine.UIElements;
 /// Note: NUI = Not in use (yet)
 ///       As is = It is obvious 
 /// </summary>
+
+[System.Serializable] // Don't worry about this. (it just make a class out of the unity class serialzable)
+public class ItemData 
+{
+    public GameObject prefab;
+    public float speed;
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -40,11 +48,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject EpicChance; // Atom
     [SerializeField] GameObject LegendaryChance; // something something
 
+    // Don't forget, items here should be add based on their difficulty
+    [SerializeField] ItemData[] itemDataArray;
 
 
     static private int _score; //NIU
 
     [SerializeField] List<GameObject> enemyPrefabs;
+
+    public enum Difficulty 
+    { 
+        easy, medium, hard
+    }
+
 
     private void Awake()
     {
@@ -104,6 +120,7 @@ public class GameManager : MonoBehaviour
         // Randomize Position & GameObject
         float RandomXSpawnPosition = Random.Range(0, 2) == 0 ? xPos : -xPos;
         float RandomYSpawnPosition = Random.Range(minY, maxY + 1);
+
         GameObject randomPrefab = ChooseRandomPrefab();
 
         // Instantiate & get RigidBody
@@ -137,15 +154,15 @@ public class GameManager : MonoBehaviour
         float randomValue = Random.value;
         if (randomValue < easyChance)
         {
-            return easyPrefab;
+            return itemDataArray[((int)Difficulty.easy)].prefab;
         }
         else if (randomValue < easyChance + mediumChance)
         {
-            return mediumPrefab;
+            return itemDataArray[((int)Difficulty.medium)].prefab;
         }
         else
         {
-            return hardPrefab;
+            return itemDataArray[((int)Difficulty.hard)].prefab;
         }
 
     }
