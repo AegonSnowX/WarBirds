@@ -1051,21 +1051,21 @@ MonoBehaviour:
   xPos: 10
   maxY: 4
   minY: 2
-  intervalTime: 3
+  intervalTime: 5
   waveSpawnModifier: 2
-  beforeWaveDelayTime: 2
-  easyPrefab: {fileID: 5713733500201722278, guid: 7468a8720b17b2a49889ad92561e6483, type: 3}
-  mediumPrefab: {fileID: 4086139513523288727, guid: 1cf19705d1acc854a98dbf1b228ba7e9, type: 3}
-  hardPrefab: {fileID: 8500128356854691129, guid: 5bc2813e445ea1344b20ebc1f56b0ff4, type: 3}
+  beforeWaveDelayTime: 5
+  easyPrefab: {fileID: 4086139513523288727, guid: 1cf19705d1acc854a98dbf1b228ba7e9, type: 3}
+  mediumPrefab: {fileID: 5713733500201722278, guid: 7468a8720b17b2a49889ad92561e6483, type: 3}
+  hardPrefab: {fileID: 0}
   EpicChance: {fileID: 0}
   LegendaryChance: {fileID: 0}
   itemDataArray:
-  - prefab: {fileID: 5713733500201722278, guid: 7468a8720b17b2a49889ad92561e6483, type: 3}
-    speed: 3
   - prefab: {fileID: 4086139513523288727, guid: 1cf19705d1acc854a98dbf1b228ba7e9, type: 3}
     speed: 1
+  - prefab: {fileID: 5713733500201722278, guid: 7468a8720b17b2a49889ad92561e6483, type: 3}
+    speed: 3
   - prefab: {fileID: 8500128356854691129, guid: 5bc2813e445ea1344b20ebc1f56b0ff4, type: 3}
-    speed: 10
+    speed: 6
   speed: 0
   enemyPrefabs:
   - {fileID: 4086139513523288727, guid: 1cf19705d1acc854a98dbf1b228ba7e9, type: 3}
