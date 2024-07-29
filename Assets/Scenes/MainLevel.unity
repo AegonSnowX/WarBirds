@@ -122,6 +122,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &69117426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69117428}
+  - component: {fileID: 69117427}
+  m_Layer: 0
+  m_Name: HealthManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &69117427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69117426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a622f73373e874fa7080b88491e55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &69117428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69117426}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &93524992
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,6 +369,7 @@ GameObject:
   - component: {fileID: 228138788}
   - component: {fileID: 228138789}
   - component: {fileID: 228138790}
+  - component: {fileID: 228138791}
   m_Layer: 7
   m_Name: Vehicle
   m_TagString: Player
@@ -450,11 +495,11 @@ MonoBehaviour:
   truck: {fileID: 228138785}
   lastMoveX: 1
   turretStand: {fileID: 756598873}
-  turretSprite: {fileID: 1362922113}
+  turretSprite: {fileID: 0}
   turret: {fileID: 1362922111}
-  turretOffsetXRight: -3.27
-  turretOffsetXLeft: 3.5
-  turretHead: {fileID: 1362922113}
+  turretOffsetXRight: -3.9
+  turretOffsetXLeft: 3.9
+  turretHead: {fileID: 0}
 --- !u!60 &228138789
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -728,6 +773,22 @@ MonoBehaviour:
   middlefrontHandler: {fileID: 976971824}
   middlebackHandler: {fileID: 1935546287}
   backHandler: {fileID: 542463877}
+--- !u!114 &228138791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228138783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c21c1961d1b2941bf33d76d07f00f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  engineCollider: {fileID: 2103169392}
+  backCollider: {fileID: 542463875}
+  middleBackCollider: {fileID: 1935546285}
+  middleFrontCollider: {fileID: 976971822}
 --- !u!1 &247034403
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +944,6 @@ GameObject:
   m_Component:
   - component: {fileID: 261744255}
   - component: {fileID: 261744254}
-  - component: {fileID: 261744256}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -943,18 +1003,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &261744256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 261744253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05a622f73373e874fa7080b88491e55e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,7 +2197,7 @@ MonoBehaviour:
   firingPoint: {fileID: 1769566366}
   aimPoint: {fileID: 247034404}
   directionangle: {fileID: 228138788}
-  aimpoint: {fileID: 0}
+  aimpoint: {fileID: 247034404}
 --- !u!1 &1384788447
 GameObject:
   m_ObjectHideFlags: 0
@@ -3420,3 +3468,4 @@ SceneRoots:
   - {fileID: 261744255}
   - {fileID: 589474579}
   - {fileID: 708599372}
+  - {fileID: 69117428}

@@ -18,7 +18,7 @@ public class VehicleMovement : MonoBehaviour
     [SerializeField] SpriteRenderer truck;
     [SerializeField] float lastMoveX = 1f;
     [SerializeField] GameObject turretStand;
-    [SerializeField] SpriteRenderer turretSprite ; 
+    [SerializeField] SpriteRenderer turretSprite;
     [SerializeField] GameObject turret; // Reference to the turret
     [SerializeField] float turretOffsetXRight = -3.9f; // Adjust this value for right facing
     [SerializeField] float turretOffsetXLeft = 3.9f; // Adjust this value for left facing
@@ -26,7 +26,7 @@ public class VehicleMovement : MonoBehaviour
     public float angle { get; private set; }
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -74,24 +74,24 @@ public class VehicleMovement : MonoBehaviour
 
 
     }
-     
+
     void AimTurret()
     {
         Vector3 mousePosition = Input.mousePosition;
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        mouseWorldPosition.z = 0; 
+        mouseWorldPosition.z = 0;
         Vector3 direction = mouseWorldPosition - turret.transform.position;
-         angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-       
+        angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
 
         if (angle > 0)
         {
             //turretHead.flipY = false also Works but collider won't change, only visual
             turret.transform.localScale = new Vector3(0.459184f, 0.5156348f, 1);
-            turret.transform.rotation = Quaternion.Euler(0f, 0f, angle); 
+            turret.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         }
-        if(angle >90)
-            {
+        if (angle > 90)
+        {
             //turretHead.flipY = true also Works but collider won't change, only visual
             turret.transform.localScale = new Vector3(0.459184f, -0.5156348f, 1);
             turret.transform.rotation = Quaternion.Euler(0, 0f, angle);
@@ -100,4 +100,3 @@ public class VehicleMovement : MonoBehaviour
 
     }
 }
-
