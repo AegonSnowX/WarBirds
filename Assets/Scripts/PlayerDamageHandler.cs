@@ -25,24 +25,24 @@ public class PlayerDamageHandler : MonoBehaviour
     {
         if (triggerObject.name == "EngineCollider")
         {
-            HealthManager.Instance.DecreaseHealth(5);
+            //HealthManager.Instance.DecreaseHealth(5);
             engineHandler.DecreaseHealth(5);
         }
         if (triggerObject.name == "MiddlefrontCollider")
         {
-            HealthManager.Instance.DecreaseHealth(5);
+            //HealthManager.Instance.DecreaseHealth(5);
             middlefrontHandler.DecreaseHealth(5);
 
         }
         if (triggerObject.name == "MiddleBackCollider")
         {
-            HealthManager.Instance.DecreaseHealth(5);
+            //HealthManager.Instance.DecreaseHealth(5);
             middlebackHandler.DecreaseHealth(5);
 
         }
         if (triggerObject.name == "BackCollider")
         {
-            HealthManager.Instance.DecreaseHealth(5);
+            //HealthManager.Instance.DecreaseHealth(5);
             backHandler.DecreaseHealth(5);
 
         }
