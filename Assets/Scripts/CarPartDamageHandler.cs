@@ -8,6 +8,7 @@ public class CarPartDamageHandler : MonoBehaviour
     public Image image;
     public const int MAX_HEALTH = 5;
     private int currentHealth;
+    private bool thisObjectDestroyed = false;
 
     private void Start()
     {
@@ -24,14 +25,26 @@ public class CarPartDamageHandler : MonoBehaviour
 
     private void UpdatePartColor()
     {
-        float healthRation = (float)currentHealth / MAX_HEALTH;
-        int attempt = 0;
+        if (!thisObjectDestroyed)
+        {
+            float healthRation = (float)currentHealth / MAX_HEALTH;
+            int attempt = 0;
 
-        Color newColor = Color.Lerp(Color.red, Color.yellow, healthRation);
-        newColor = Color.Lerp(newColor, Color.green, healthRation);
+            Color newColor = Color.Lerp(Color.red, Color.yellow, healthRation);
+            newColor = Color.Lerp(newColor, Color.green, healthRation);
 
-        image.color = newColor;
-        attempt++;
-        Debug.Log($"{newColor}");
+            image.color = newColor;
+            attempt++;
+            Debug.Log($"{newColor}");
+
+            if (currentHealth <= 0)
+            {
+                Debug.Log(gameObject.name + "Destroyed");
+                HealthManager.Health -= 25;
+                Debug.Log(HealthManager.Health);
+                thisObjectDestroyed = true;
+            }
+        }
+       
     }
 }
