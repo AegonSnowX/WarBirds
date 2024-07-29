@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 293898274054855613}
   m_Layer: 6
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Enemy Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18946123, y: -0.060318112}
+  m_Offset: {x: 0.30315542, y: 0.026115537}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -105,7 +105,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.341559, y: 2.2787483}
+  m_Size: {x: 9.326793, y: 2.7973707}
   m_EdgeRadius: 0
 --- !u!212 &4504203027491690223
 SpriteRenderer:

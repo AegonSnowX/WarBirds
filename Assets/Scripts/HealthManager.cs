@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HealthManager : MonoBehaviour
+{
+    public static HealthManager Instance;
+
+    public const float MAX_HEALTH = 100;
+    public static float Health;
+
+    private void Awake()
+    {
+        Health = MAX_HEALTH;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // I will add this in case we want to change scenes then gameManager won't get destroyed while loading other scenes
+        }
+        else
+        {
+            Destroy(gameObject); // if there is an instance there it will destroy
+        }
+    }
+
+    public void DecreaseHealth(float health)
+    {
+        Health -= health;
+        Debug.Log(Health);
+    }
+}

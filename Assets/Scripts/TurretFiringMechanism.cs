@@ -11,9 +11,9 @@ public class TurretFiringMechanism : MonoBehaviour
     public GameObject firingPoint;
     [SerializeField] Aimpoint aimPoint;
     [SerializeField] VehicleMovement directionangle;
-    public Aimpoint aimpoint; 
-   
-  
+    public Aimpoint aimpoint;
+
+
     void Start()
     {
         aimpoint = GameObject.Find("AimPoint").GetComponent<Aimpoint>();
@@ -43,5 +43,5 @@ public class TurretFiringMechanism : MonoBehaviour
         }
     }
 
-    
+
 }

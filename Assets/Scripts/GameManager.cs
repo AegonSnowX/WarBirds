@@ -138,8 +138,8 @@ public class GameManager : MonoBehaviour
     GameObject ChooseRandomPrefab()
     {
         float difficultyLevel = Mathf.Clamp01((float)currentWave / 10);
-        float easyChance = Mathf.Lerp(0.8f, 0.4f , difficultyLevel);
-        float mediumChance = Mathf.Lerp(0.2f, 0.4f, difficultyLevel);
+        float easyChance = Mathf.Lerp(0.7f, 0.4f , difficultyLevel);
+        float mediumChance = Mathf.Lerp(0.3f, 0.4f, difficultyLevel);
         float hardChance = Mathf.Lerp(0.1f, 0.2f, difficultyLevel);
 
         float randomValue = Random.value;
@@ -195,80 +195,4 @@ public class GameManager : MonoBehaviour
 
     }
 
-
-    void ChangeDirectionWhileAtBorder()
-    {
-        
-    }
-    
-    void WaveCountUp()
-    {
-        currentWave++;
-
-    } // NIU
-
- 
-
-    int CalculateSpawning()
-    {
-        int EnemyspawnCountPerWave = 1;
-        for (int i = 0; i < currentWave; i++)
-        {
-            EnemyspawnCountPerWave *= 2;
-        }
-        return EnemyspawnCountPerWave;
-    } // NIU
-
-    bool IsEnemyRemaining() //NIU
-    {
-        if (GameObject.FindGameObjectWithTag("Enemy Plane") == null)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
-    void ObjectMove(Rigidbody2D rBToMove, Vector2 objectVelocity) // NIU
-    {
-        rBToMove.velocity = objectVelocity;
-    }
-
-
-    IEnumerator holdForSeconds(int seconds) // NIU
-    {
-        yield return new WaitForSeconds(seconds);
-        SpawnEnemies();
-    }
-
-    IEnumerator SpawnEnemiesFromDifferentLocation(int numToSpawn, int intervalTime, int secondsToStart) // NIU (An enumerator replica of the function of SpawnEnemies)
-    {
-        yield return new WaitForSeconds(secondsToStart);
-
-            //int numbersToSpawn = CalculateSpawning();
-
-            float RandomXSpawnPosition = Random.Range(0, 2) == 0 ? xPos : -xPos;
-            float RandomYSpawnPosition = Random.Range(minY, maxY + 1);
-            GameObject randomPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-
-            GameObject chosenPrefab = Instantiate(randomPrefab, new Vector2(RandomXSpawnPosition, RandomYSpawnPosition), randomPrefab.transform.rotation);
-            Rigidbody2D chosenPrefabRb = chosenPrefab.GetComponent<Rigidbody2D>();
-
-            if (RandomXSpawnPosition == xPos)
-            {
-                isSpawnedRight = true;
-                Flip(chosenPrefab); // plane will flipp when it is coming from right
-                chosenPrefabRb.velocity = chosenPrefab.transform.TransformDirection(Vector2.left);
-            }
-            else
-            {
-                isSpawnedRight = false;
-                chosenPrefabRb.velocity = chosenPrefab.transform.TransformDirection(Vector2.right);
-            }
-            yield return new WaitForSeconds(intervalTime);
-        
-    }
-  
 }
