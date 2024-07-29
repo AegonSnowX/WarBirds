@@ -21,12 +21,12 @@ public class video : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 10) 
+        if (timer > 15) 
         {
             skipbutton.gameObject.SetActive(true);
          
         }
-        if(timer>98)
+        if(timer>97)
         { 
             LoadNextScene();
         }

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Parachute: {fileID: 7328637940527609575}
+  Artillary: {fileID: 7173878840274466911, guid: 04c8a10fa6a99a4449ed056eba528233, type: 3}
 --- !u!1 &7328637940527609575
 GameObject:
   m_ObjectHideFlags: 0

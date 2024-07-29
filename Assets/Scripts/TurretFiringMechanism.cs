@@ -35,6 +35,10 @@ public class TurretFiringMechanism : MonoBehaviour
                 Vector3 aimingVector = aimPoint.gameObject.transform.position - firingPoint.transform.position;
                 aimingVector.Normalize();
                 projectile.GetComponent<Rigidbody2D>().AddForce(aimingVector * BulletSpeed);
+
+                ExplosionDestroyer destroyer = projectile.AddComponent<ExplosionDestroyer>();
+                destroyer.lifeSecondsLeft = 10;
+               
             }
         }
     }
