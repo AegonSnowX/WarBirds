@@ -20,8 +20,11 @@ public class NukeLogic : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(NukeExplosion, WarHead.transform.position, Quaternion.identity);
+       GameObject nuke= Instantiate(NukeExplosion, WarHead.transform.position, Quaternion.identity);
         Destroy(gameObject);
-        ExplosionDestroyer.Destroy(NukeExplosion);
+
+        ExplosionDestroyer destroyer = nuke.AddComponent<ExplosionDestroyer>();
+        destroyer.lifeSecondsLeft = 4;
+       
     }
 }

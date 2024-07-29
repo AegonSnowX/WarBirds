@@ -82,7 +82,7 @@ public class BombLogic : MonoBehaviour
         ExplosionDestroyer destroyer = explosion.AddComponent<ExplosionDestroyer>();
         destroyer.lifeSecondsLeft = 4;
         Destroy(gameObject);
-      
+     
     }
 
 }

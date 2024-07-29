@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CarPartDamageHandler : MonoBehaviour
 {
     public Image image;
-    public const int MAX_HEALTH = 50;
+    public const int MAX_HEALTH = 5;
     private int currentHealth;
 
     private void Start()
