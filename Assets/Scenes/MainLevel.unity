@@ -1977,7 +1977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1107884126
 Transform:
   m_ObjectHideFlags: 0
@@ -2005,7 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa37a67a1cace947bc2863636c5fc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlightSpeed: 5
+  FlightSpeed: 5.05
   PlaneA10: {fileID: 1107884130}
   rb: {fileID: 1107884129}
   Bullets: {fileID: 6509428271833439267, guid: 6c11bfb3d40eef64da75e9da9d6f40ee, type: 3}

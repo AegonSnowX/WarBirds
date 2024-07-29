@@ -7,6 +7,7 @@ TagManager:
   - Bombs
   - NoFireZone
   - Enemy Plane
+  - Player Bullet
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Bomb
   - Player
   - Border
-  - 
-  - 
+  - Ground
+  - Bullets
   - 
   - 
   - 
